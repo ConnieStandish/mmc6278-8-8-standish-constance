@@ -16,3 +16,22 @@
 //6. Use string concatenation to ensure that user entered data will be pulled. 
 
 //7. Additional steps to take when setting up icon, time updated, and Google maps link.
+
+var URL = 'https://api.openweathermap.org/data/2.5/weather?q=gainesville&units=imperial&appid=cbf6a4540c5e167330be7dd558d11f9a'
+
+var weatherDiv = document.getElementById('weather-app')
+
+var weatherSection = document.getElementById('weather')
+
+var form = document.querySelector('form')
+
+form.onsubmit = function(e) {
+    e.preventDefault()
+    fetch(URL)
+    .then(function(response) {
+        return response.json()
+    })
+    .then(function(weather){
+        console.log(weather)
+    })
+}
