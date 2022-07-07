@@ -34,6 +34,10 @@ form.onsubmit = function(e) {
     })
     .then(function(weather){
         console.log(weather)
+
+        var city = document.createElement('h2')
+        city.textContent = weather.name
+        weatherSection.appendChild(city)
     })
 }
     
