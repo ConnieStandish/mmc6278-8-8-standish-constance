@@ -17,8 +17,6 @@
 
 //7. Additional steps to take when setting up icon, time updated, and Google maps link.
 
-var URL = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=cbf6a4540c5e167330be7dd558d11f9a'
-
 var weatherDiv = document.getElementById('weather-app')
 
 var weatherSection = document.getElementById('weather')
@@ -27,12 +25,9 @@ var form = document.querySelector('form')
 
 form.onsubmit = function(e) {
     e.preventDefault()
-    // var queryString = "?units=imperial&appid=cbf6a4540c5e167330be7dd558d11f9a" + userLocation
-    // var fetchURL = URL + queryString
-    // var input = document.querySelector('input')
-    // var userLocation = input.value
-    // input.value = ""
-    // console.log(userLocation)
+    var userLocation = form.search.value
+    var URL = "https://api.openweathermap.org/data/2.5/weather?q=" + userLocation + "&units=imperial&appid=cbf6a4540c5e167330be7dd558d11f9a"
+    if (!userLocation) return
     fetch(URL)
     .then(function(response) {
         return response.json()
@@ -41,3 +36,4 @@ form.onsubmit = function(e) {
         console.log(weather)
     })
 }
+    
