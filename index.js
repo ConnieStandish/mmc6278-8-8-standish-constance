@@ -50,6 +50,11 @@ form.onsubmit = function(e) {
     googleMaps.textContent = 'Click to view map'
     weatherSection.appendChild(googleMaps)
 
+    var icon = document.createElement('img')
+    var iconCode = weather.weather.icon
+    icon.src = 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png'
+    weatherSection.appendChild(icon)
+
 })
 
 }
