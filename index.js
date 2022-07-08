@@ -51,9 +51,23 @@ form.onsubmit = function(e) {
     weatherSection.appendChild(googleMaps)
 
     var icon = document.createElement('img')
-    var iconCode = weather.weather.icon
+    var iconCode = weather['weather'][0]['icon']
     icon.src = 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png'
+    icon.alt = weather['weather'][0]['description']
     weatherSection.appendChild(icon)
+
+    var desc1 = weather['weather'][0]['description']
+    var arr = desc1.split(' ')
+    
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1)
+        
+    }
+    var desc2 = arr.join(' ')
+    // console.log(desc2)
+    var description = document.createElement('p')
+    description.textContent = desc2
+    weatherSection.appendChild(description)
 
 })
 
