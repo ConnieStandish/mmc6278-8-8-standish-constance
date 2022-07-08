@@ -36,13 +36,12 @@ form.onsubmit = function(e) {
         console.log(weather)
         
     var city = document.createElement('h2')
-    city.textContent = weather.name
-    weatherSection.appendChild(city)
+    city = weather.name
     var country = document.createElement('h2')
-    country.textContent = weather.sys.country
-    weatherSection.appendChild(country)
-    var locHeader = city + ', ' + country
-    console.log(locHeader)
+    country = weather.sys.country
+    var locHeader = document.createElement('h2')
+    locHeader.textContent = city + ', ' + country
+    weatherSection.appendChild(locHeader)
 })
 
 }
