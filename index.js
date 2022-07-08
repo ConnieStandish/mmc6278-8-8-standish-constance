@@ -69,6 +69,14 @@ form.onsubmit = function(e) {
     description.textContent = desc2
     weatherSection.appendChild(description)
 
+    var currentTemp = document.createElement('p')
+    currentTemp.textContent = 'Current: ' + weather.main.temp + '\u00B0 F'
+    weatherSection.appendChild(currentTemp)
+
+    var perceivedTemp = document.createElement('p')
+    perceivedTemp.textContent = 'Feels like: ' + weather.main.feels_like + '\u00B0 F'
+    weatherSection.appendChild(perceivedTemp)
+
 })
 
 }
