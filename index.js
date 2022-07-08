@@ -42,9 +42,19 @@ form.onsubmit = function(e) {
     var locHeader = document.createElement('h2')
     locHeader.textContent = city + ', ' + country
     weatherSection.appendChild(locHeader)
+
+    var googleMaps = document.createElement('a')
+    var lat = weather.coord.lat
+    var lon = weather.coord.lon
+    googleMaps.href = 'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lon
+    googleMaps.textContent = 'Click to view map'
+    weatherSection.appendChild(googleMaps)
+
 })
 
 }
+
+
 
     
 
