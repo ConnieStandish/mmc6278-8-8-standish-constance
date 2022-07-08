@@ -77,6 +77,16 @@ form.onsubmit = function(e) {
     perceivedTemp.textContent = 'Feels like: ' + weather.main.feels_like + '\u00B0 F'
     weatherSection.appendChild(perceivedTemp)
 
+    var time = weather.dt * 1000
+
+    var date = new Date(time)
+    var timeString = date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit'
+})
+    var lastUpdate = document.createElement('p')
+    lastUpdate.textContent = 'Last updated: ' + timeString
+    weatherSection.appendChild(lastUpdate)
 })
 
 }
