@@ -52,7 +52,7 @@ form.onsubmit = function(e) {
 
     var icon = document.createElement('img')
     var iconCode = weather['weather'][0]['icon']
-    icon.src = 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png'
+    icon.src = 'https://openweathermap.org/img/wn/' + iconCode + '@2x.png'
     icon.alt = weather['weather'][0]['description']
     weatherSection.appendChild(icon)
 
