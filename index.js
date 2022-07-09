@@ -73,14 +73,17 @@ form.onsubmit = function(e) {
     var description = document.createElement('p')
     description.textContent = desc2
     weatherSection.appendChild(description)
+    lineBreaks()
+
 
     var currentTemp = document.createElement('p')
     currentTemp.textContent = 'Current: ' + weather.main.temp + '\u00B0 F'
     weatherSection.appendChild(currentTemp)
 
     var perceivedTemp = document.createElement('p')
-    perceivedTemp.textContent = 'Feels like: ' + weather.main.feels_like + '\u00B0 F'
+    perceivedTemp.textContent = 'Feels like: ' + weather.main.feels_like + '\u00B0 F' 
     weatherSection.appendChild(perceivedTemp)
+    lineBreaks()
 
     var time = weather.dt * 1000
 
@@ -97,6 +100,13 @@ form.onsubmit = function(e) {
     weatherSection.innerHTML = err.message
 })
 }
+
+function lineBreaks() {
+    var p = document.createElement('p')
+    p.innerHTML = '&nbsp'
+    weatherSection.appendChild(p)
+}
+
 
 
 
