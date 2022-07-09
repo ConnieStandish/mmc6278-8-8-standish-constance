@@ -40,12 +40,8 @@ form.onsubmit = function(e) {
         console.log(weather)
         weatherSection.innerHTML = ""
         
-    var city = document.createElement('h2')
-    city = weather.name
-    var country = document.createElement('h2')
-    country = weather.sys.country
     var locHeader = document.createElement('h2')
-    locHeader.textContent = city + ', ' + country
+    locHeader.textContent = weather.name + ', ' + weather.sys.country
     weatherSection.appendChild(locHeader)
 
     var googleMaps = document.createElement('a')
