@@ -31,6 +31,9 @@ form.onsubmit = function(e) {
     form.search.value = ""
     fetch(URL)
     .then(function(response) {
+        if (response.status !== 200) {
+            throw new Error ('Location Not Found')
+        }
         return response.json()
     })
     .then(function(weather){
@@ -90,7 +93,9 @@ form.onsubmit = function(e) {
     lastUpdate.textContent = 'Last updated: ' + timeString
     weatherSection.appendChild(lastUpdate)
 })
-
+.catch(function(err) {
+    weatherSection.innerHTML = err.message
+})
 }
 
 
