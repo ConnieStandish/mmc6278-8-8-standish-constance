@@ -28,12 +28,14 @@ form.onsubmit = function(e) {
     var userLocation = form.search.value
     var URL = "https://api.openweathermap.org/data/2.5/weather?q=" + userLocation + "&units=imperial&appid=cbf6a4540c5e167330be7dd558d11f9a"
     if (!userLocation) return
+    form.search.value = ""
     fetch(URL)
     .then(function(response) {
         return response.json()
     })
     .then(function(weather){
         console.log(weather)
+        weatherSection.innerHTML = ""
         
     var city = document.createElement('h2')
     city = weather.name
