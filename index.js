@@ -32,7 +32,7 @@ form.onsubmit = function(e) {
     fetch(URL)
     .then(function(response) {
         if (response.status !== 200) {
-            throw new Error ('Location Not Found')
+            throw new Error ('Location not found')
         }
         return response.json()
     })
@@ -89,6 +89,7 @@ form.onsubmit = function(e) {
     })
 
     .catch(function(err) {
+    weatherSection.innerHTML = ""
     var errMessage = document.createElement('h2')
     errMessage.innerHTML = err.message
     weatherSection.appendChild(errMessage)
@@ -100,6 +101,7 @@ function lineBreaks() {
     p.innerHTML = '&nbsp'
     weatherSection.appendChild(p)
 }
+
 
 
 
