@@ -59,18 +59,14 @@ form.onsubmit = function(e) {
 
     var desc1 = weather['weather'][0]['description']
     var arr = desc1.split(' ')
-    
     for (let i = 0; i < arr.length; i++) {
         arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1)
-        
     }
     var desc2 = arr.join(' ')
-    // console.log(desc2)
     var description = document.createElement('p')
     description.textContent = desc2
     weatherSection.appendChild(description)
     lineBreaks()
-
 
     var currentTemp = document.createElement('p')
     currentTemp.textContent = 'Current: ' + weather.main.temp + '\u00B0 F'
@@ -82,19 +78,21 @@ form.onsubmit = function(e) {
     lineBreaks()
 
     var time = weather.dt * 1000
-
     var date = new Date(time)
     var timeString = date.toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit'
-})
+    })
     var lastUpdate = document.createElement('p')
     lastUpdate.textContent = 'Last updated: ' + timeString
     weatherSection.appendChild(lastUpdate)
-})
-.catch(function(err) {
-    weatherSection.innerHTML = err.message
-})
+    })
+
+    .catch(function(err) {
+    var errMessage = document.createElement('h2')
+    errMessage.innerHTML = err.message
+    weatherSection.appendChild(errMessage)
+    })
 }
 
 function lineBreaks() {
